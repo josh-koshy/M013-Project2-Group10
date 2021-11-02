@@ -3,15 +3,15 @@ from exploreOnly import *
 
 def Simulation(t: int):
     print("\nData after " + str(t) + " trials..\n")
-    print("Exploit only (Best Cafe = " + str(bestCafe) + "):")
+    print("Exploit only:")
     oH = 300 * 11
     print("Optimum Happiness -> " + str(oH))
-    if bestCafe == 1:
-        eTH = 9 + 7 + 11 + 297 * 9
-    elif bestCafe == 2:
-        eTH = 9 + 7 + 11 + 297 * 7
-    elif bestCafe == 3:
-        eTH = 9 + 7 + 11 + 297 * 11
+    if findBestCaf() == 1:
+        eTH = 9 + 7 + 11 + (297 * 9)
+    if findBestCaf() == 2:
+        eTH = 9 + 7 + 11 + (297 * 7)
+    if findBestCaf() == 3:
+        eTH = 9 + 7 + 11 + (297 * 11)
     # eTH -> expected total happiness
     print("Expected Total Happiness -> " + str(eTH))
     regret = oH - eTH
@@ -49,4 +49,6 @@ def Simulation(t: int):
 
     print("\neGreedy:")
 
+Simulation(1000)
 Simulation(10000)
+Simulation(100000)
