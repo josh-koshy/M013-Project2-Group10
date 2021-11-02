@@ -6,19 +6,23 @@ def Simulation(t: int):
     print("Exploit only (Best Cafe = " + str(bestCafe) + "):")
     oH = 300 * 11
     print("Optimum Happiness -> " + str(oH))
-    eTH = 9 + 7 + 11 + 297 * 11  # eTH -> expected total happiness
+    if bestCafe == 1:
+        eTH = 9 + 7 + 11 + 297 * 9
+    elif bestCafe == 2:
+        eTH = 9 + 7 + 11 + 297 * 7
+    elif bestCafe == 3:
+        eTH = 9 + 7 + 11 + 297 * 11
+    # eTH -> expected total happiness
     print("Expected Total Happiness -> " + str(eTH))
     regret = oH - eTH
     print("Expected Regret -> " + str(regret))
-    numTrials = 0
     totalHappiness = 0
     totalRegret = 0
-    while numTrials != t:
+    for i in range(t):
         h300 = exploit()
         totalHappiness = totalHappiness + h300
         regret = oH - h300
         totalRegret = totalRegret + regret
-        numTrials += 1
     avgTH = totalHappiness / t # avgTH -> average total happiness
     print("Average Total Happiness -> " + str(avgTH))
     avgRegret = totalRegret / t
@@ -31,15 +35,13 @@ def Simulation(t: int):
     print("Expected Total Happiness -> " + str(eTH))
     regret = oH - eTH
     print("Expected Regret -> " + str(regret))
-    numTrials = 0
     totalHappiness = 0
     totalRegret = 0
-    while numTrials != t:
+    for i in range(t):
         h300 = explore()
         totalHappiness = totalHappiness + h300
         regret = oH - h300
         totalRegret = totalRegret + regret
-        numTrials += 1
     avgTH = totalHappiness / t  # avgTH -> average total happiness
     print("Average Total Happiness -> " + str(avgTH))
     avgRegret = totalRegret / t
