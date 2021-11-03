@@ -1,5 +1,6 @@
 #Explore Only
 import random
+
 def explore():
     sum1, sum2, sum3 = 0, 0, 0
     for i in range(100):
