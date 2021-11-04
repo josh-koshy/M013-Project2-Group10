@@ -1,7 +1,7 @@
 #Explore Only
 import random
 
-def explore():
+def exploreOnly():
     sum1, sum2, sum3 = 0, 0, 0
     for i in range(100):
         sum1 = sum1 + random.normalvariate(9, 3)
