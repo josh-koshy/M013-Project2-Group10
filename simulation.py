@@ -21,7 +21,7 @@ def Simulation(t: int, e: int): # e is value for e greedy
     totalHappiness = 0
     totalRegret = 0
     for i in range(t):
-        h300 = exploit()
+        h300 = exploitOnly()
         totalHappiness = totalHappiness + h300
         regret = oH - h300
         totalRegret = totalRegret + regret
@@ -40,7 +40,7 @@ def Simulation(t: int, e: int): # e is value for e greedy
     totalHappiness = 0
     totalRegret = 0
     for i in range(t):
-        h300 = explore()
+        h300 = exploreOnly()
         totalHappiness = totalHappiness + h300
         regret = oH - h300
         totalRegret = totalRegret + regret
