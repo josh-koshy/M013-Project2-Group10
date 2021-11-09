@@ -1,22 +1,22 @@
 #eGreedy
 import random
 
-d1 = random.normalvariate(9, 3)
-d2 = random.normalvariate(7, 5)
-d3 = random.normalvariate(11, 7)
-newList = [d1, d2, d3]
-
+c1 = [random.normalvariate(9, 3)]
+c2 = [random.normalvariate(7, 5)]
+c3 = [random.normalvariate(11, 7)]
 
 def bestCaf() -> int:
-    maxVal = 0
-    maxIndex = 0
-    for i in range(len(newList)):
-        if maxVal < newList[i]:
-            maxVal = newList[i]
-            maxIndex = i
-    return maxIndex + 1
+    c1TA = sum(c1) / len(c1)
+    c2TA = sum(c2) / len(c2)
+    c3TA = sum(c3) / len(c3)
+    if c1TA > c2TA and c1TA > c3TA:
+        return 1
+    elif c2TA > c1TA and c2TA > c3TA:
+        return 2
+    else:
+        return 3
 
-def eGreedy(e: int):
+def eGreedy(e: int) -> float:
     sum = 0
     for i in range(297):
         percent = random.random()
@@ -25,32 +25,26 @@ def eGreedy(e: int):
             if i == 1:
                 h = random.normalvariate(9, 3)
                 sum += h
-                if h > newList[0]:
-                    newList[0] = h
+                c1.append(h)
             elif i == 2:
                 h = random.normalvariate(7, 5)
                 sum += h
-                if h > newList[1]:
-                    newList[1] = h
-            elif i == 3:
+                c2.append(h)
+            else:
                 h = random.normalvariate(11, 7)
                 sum += h
-                if h > newList[2]:
-                    newList[2] = h
+                c3.append(h)
         else:
             if bestCaf() == 1:
                 h = random.normalvariate(9, 3)
                 sum += h
-                if h > newList[0]:
-                    newList[0] = h
+                c1.append(h)
             elif bestCaf() == 2:
                 h = random.normalvariate(7, 5)
                 sum += h
-                if h > newList[1]:
-                    newList[1] = h
-            elif bestCaf() == 3:
+                c2.append(h)
+            else:
                 h = random.normalvariate(11, 7)
                 sum += h
-                if h > newList[2]:
-                    newList[2] = h
+                c3.append(h)
     return sum
